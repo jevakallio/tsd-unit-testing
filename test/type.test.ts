@@ -2,22 +2,34 @@ import { expectType, expectError } from "tsd";
 import { sum } from "../ts";
 import { multiply } from "../js";
 
-const u = "s";
-
 describe("Types", () => {
   // these are running against a ts implementation file
   describe("ts", () => {
+    // This is just a regular unit test, nothing weird here
     it("should add two numbers together at runtime", () => {
       expect(sum(1, 2)).toEqual(3);
     });
 
-    it("should validate types ts files", () => {
+    // This is a tsd type test
+    it("should validate types from ts files", () => {
       expectType<number>(sum(1, 2));
     });
 
+    // This is a type test that intentionally fails
     it("should fail the test when using expectError", () => {
+      // I can't get the tests running without adding ts-expect-error
+      // as the expectError catches the error compile time already.
+      //
+      // Not sure what it would mean to report type errors in a jest
+      // reporter, since the tests should never run
+      //
       // @ts-expect-error
       expectError<string>(sum(1, 2));
+    });
+
+    it("should be able to pass a type test and fail a runtime test", () => {
+      expectType<number>(sum(1, 2));
+      expect(sum(1, 2)).toEqual(4); //fails on purpose
     });
   });
 

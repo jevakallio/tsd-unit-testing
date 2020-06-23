@@ -5,9 +5,6 @@
   "scripts": {
     "test": "jest"
   },
-  "tsd": {
-    "directory": "test-dts"
-  },
   "jest": {
     "preset": "ts-jest",
     "moduleFileExtensions": [
