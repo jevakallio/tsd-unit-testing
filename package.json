@@ -1,27 +1,30 @@
 {
   "name": "tsd-unit-testing",
   "main": "index.html",
+  "license": "MIT",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html",
-    "test": "jest",
-    "test-dts": "tsd"
+    "test": "jest"
   },
   "tsd": {
     "directory": "test-dts"
   },
   "jest": {
     "preset": "ts-jest",
-    "moduleFileExtensions": ["ts", "tsx", "js"],
-    "testMatch": ["**/test-dts/*.(ts|tsx|js)"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testMatch": [
+      "**/test/*.(ts|tsx|js)"
+    ]
   },
   "dependencies": {
-    "jest": "24.9.0",
-    "ts-jest": "24.2.0",
-    "tsd": "0.11.0"
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.6.1"
+    "@types/jest": "^26.0.0",
+    "jest": "26.0.1",
+    "ts-jest": "26.1.1",
+    "tsd": "0.11.0",
+    "typescript": "^3.9.5"
   },
   "keywords": []
 }
