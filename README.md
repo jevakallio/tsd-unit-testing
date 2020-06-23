@@ -1,2 +1,3 @@
 # tsd-unit-testing
-Created with CodeSandbox
+
+See [test/type.test.ts].
